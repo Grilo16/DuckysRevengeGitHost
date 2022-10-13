@@ -3,6 +3,8 @@ import styled from "styled-components";
 import gameTitle from "../static/gameTitle.png";
 import startGame from "../static/playagame.png";
 import createMap from "../static/createamap.png";
+import { useEffect } from "react";
+import gameRepo from "../repositories/gameRepo";
 
 
 const HomeDiv = styled.div`
@@ -24,6 +26,13 @@ const ContentDiv = styled.div`
 `;
 
 const HomeContainer = () => {
+
+  useEffect(()=>{
+    gameRepo.loadMapsToStorage()
+
+  }, [])
+
+
   return (
     <HomeDiv>
       <h2>Welcome to </h2>
@@ -32,7 +41,7 @@ const HomeContainer = () => {
       <hr />
 
       <ContentDiv>
-        <Link to="/game">
+        <Link to="/game" onClick={()=>setTimeout(function () {window.location.reload()},50)}>
           <img
             src={startGame}
             alt=""
@@ -44,7 +53,7 @@ const HomeContainer = () => {
           />
         </Link>
 
-        <Link to="/levelmaker">
+        <Link to="/levelmaker" onClick={()=>setTimeout(function () {window.location.reload()},50)}>
           <img
             src={createMap}
             alt=""

@@ -77,7 +77,7 @@ const TileSelector = () => {
         <ContentDiv>
           <div>
             
-          <Link to="/">
+          <Link to="/" onClick={()=>setTimeout(function () {window.location.reload()},50)}>
               <img
                 src={homeLogo}
                 height={120}
@@ -91,7 +91,7 @@ const TileSelector = () => {
           </div>
 
           <div>
-          <Link to="/game">
+          <Link to="/game" onClick={()=>setTimeout(function () {window.location.reload()},50)}>
               <img
                 src={playGame}
                 height={120}

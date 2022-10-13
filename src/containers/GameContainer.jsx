@@ -238,6 +238,8 @@ const reducer = (state, action) => {
 };
 
 const GameContainer = () => {
+    
+
   const initialStates = {
     selectedMap: {},
     playerOrientation: "right",

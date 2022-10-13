@@ -80,7 +80,7 @@ const GameMenu = ({ myRef, executeScroll }) => {
       <ContentDiv>
         <div>
 
-        <Link to="/">
+        <Link to="/" onClick={()=>setTimeout(function () {window.location.reload()},50)}>
             <img
               src={homeLogo}
               height={120}
@@ -94,7 +94,7 @@ const GameMenu = ({ myRef, executeScroll }) => {
         </div>
 
         <div>
-        <Link to="/levelmaker">
+        <Link to="/levelmaker" onClick={()=>setTimeout(function () {window.location.reload()},50)}>
             <img
               src={createMap}
               height={120}
