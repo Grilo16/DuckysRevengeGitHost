@@ -255,11 +255,24 @@ const GameContainer = () => {
 
   const [state, dispatch] = useReducer(reducer, initialStates);
 
+  const myRef = useRef(null);
+  const executeScroll = (myRef) =>
+    myRef.current.scrollIntoView({
+      behavior: "auto",
+      block: "center",
+      inline: "center",
+    });
+
   useEffect(() => {
     gameRepo.loadMapsToStorage()
     const allMaps = gameRepo.getAllMaps()
         dispatch({ type: "LoadMapList", res: allMaps });
         dispatch({ type: "LoadMap", res : allMaps[0] });
+        setTimeout(function () {
+          executeScroll(myRef);
+        }, 50);
+        dispatch({ type: "ToggleGameMenu" });
+    
   }, []);
 
   const walls = state.walls.map((wall) => {
@@ -274,13 +287,7 @@ const GameContainer = () => {
     return <Projectile key={projectile.id} projectile={projectile} />;
   });
 
-  const myRef = useRef(null);
-  const executeScroll = (myRef) =>
-    myRef.current.scrollIntoView({
-      behavior: "auto",
-      block: "center",
-      inline: "center",
-    });
+  
 
   return (
     <AppContext.Provider

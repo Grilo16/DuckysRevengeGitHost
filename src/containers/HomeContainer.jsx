@@ -52,7 +52,7 @@ const HomeContainer = () => {
             }}
           />
         </Link>
-
+   
         <Link to="/levelmaker" onClick={()=>setTimeout(function () {window.location.reload()},50)}>
           <img
             src={createMap}
