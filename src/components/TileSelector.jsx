@@ -77,7 +77,7 @@ const TileSelector = () => {
         <ContentDiv>
           <div>
             
-          <Link to="/" onClick={()=>setTimeout(function () {window.location.reload()},50)}>
+          <a href="https://grilo16.github.io/DuckysRevengeGitHost/">
               <img
                 src={homeLogo}
                 height={120}
@@ -87,7 +87,8 @@ const TileSelector = () => {
                   borderRadius: "20px",
                 }}
               />
-            </Link>
+            </a>
+
           </div>
 
           <div>
