@@ -10,7 +10,6 @@ const gameRepo = {
     }
   },
 
-
   getAllMaps() {
     return allMaps
   },
