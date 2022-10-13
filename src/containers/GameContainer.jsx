@@ -271,8 +271,6 @@ const GameContainer = () => {
         setTimeout(function () {
           executeScroll(myRef);
         }, 50);
-        dispatch({ type: "ToggleGameMenu" });
-    
   }, []);
 
   const walls = state.walls.map((wall) => {
