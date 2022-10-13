@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/DuckysRevengeGitHost/static/css/main.8211a2cb.css",
-    "main.js": "/DuckysRevengeGitHost/static/js/main.7ac19d7e.js",
+    "main.js": "/DuckysRevengeGitHost/static/js/main.ccd66601.js",
     "static/js/787.c4e7f8f9.chunk.js": "/DuckysRevengeGitHost/static/js/787.c4e7f8f9.chunk.js",
     "static/media/background.png": "/DuckysRevengeGitHost/static/media/background.f685d6083116220787d6.png",
     "static/media/projectile-black-hole.png": "/DuckysRevengeGitHost/static/media/projectile-black-hole.2c63de6a3d2e7380153d.png",
@@ -14,11 +14,11 @@
     "static/media/home.png": "/DuckysRevengeGitHost/static/media/home.7776c89b2c3031208a24.png",
     "index.html": "/DuckysRevengeGitHost/index.html",
     "main.8211a2cb.css.map": "/DuckysRevengeGitHost/static/css/main.8211a2cb.css.map",
-    "main.7ac19d7e.js.map": "/DuckysRevengeGitHost/static/js/main.7ac19d7e.js.map",
+    "main.ccd66601.js.map": "/DuckysRevengeGitHost/static/js/main.ccd66601.js.map",
     "787.c4e7f8f9.chunk.js.map": "/DuckysRevengeGitHost/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8211a2cb.css",
-    "static/js/main.7ac19d7e.js"
+    "static/js/main.ccd66601.js"
   ]
 }
