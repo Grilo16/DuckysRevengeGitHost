@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import gameTitle from "../static/gameTitle.png";
 import startGame from "../static/playagame.png";
 import createMap from "../static/createamap.png";
+
 
 const HomeDiv = styled.div`
   position: absolute;
@@ -30,7 +32,7 @@ const HomeContainer = () => {
       <hr />
 
       <ContentDiv>
-        <a href="/game">
+        <Link to="/game">
           <img
             src={startGame}
             alt=""
@@ -40,9 +42,9 @@ const HomeContainer = () => {
               borderRadius: "20px",
             }}
           />
-        </a>
+        </Link>
 
-        <a href="/levelmaker">
+        <Link to="/levelmaker">
           <img
             src={createMap}
             alt=""
@@ -52,7 +54,7 @@ const HomeContainer = () => {
               borderRadius: "20px",
             }}
           />
-        </a>
+        </Link>
       </ContentDiv>
     </HomeDiv>
   );
