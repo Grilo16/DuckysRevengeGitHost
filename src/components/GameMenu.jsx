@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../containers/GameContainer";
 import gameRepo from "../repositories/gameRepo";
@@ -78,7 +79,8 @@ const GameMenu = ({ myRef, executeScroll }) => {
       <hr />
       <ContentDiv>
         <div>
-          <a href="/">
+
+        <Link to="/">
             <img
               src={homeLogo}
               height={120}
@@ -87,12 +89,12 @@ const GameMenu = ({ myRef, executeScroll }) => {
                 backgroundColor: "rgb(20, 20, 20)",
                 borderRadius: "20px",
               }}
-            />
-          </a>
+              />
+              </Link>
         </div>
 
         <div>
-          <a href="/levelmaker">
+        <Link to="/levelmaker">
             <img
               src={createMap}
               height={120}
@@ -101,7 +103,7 @@ const GameMenu = ({ myRef, executeScroll }) => {
                 borderRadius: "20px",
               }}
             />
-          </a>
+          </Link>
         </div>
       </ContentDiv>
     </GameMenuDiv>

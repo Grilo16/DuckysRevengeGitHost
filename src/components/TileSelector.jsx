@@ -7,6 +7,7 @@ import wallSprite from "../static/wall2.png";
 import enemySprite from "../static/enemy.png";
 import playGame from "../static/playagame.png";
 import homeLogo from "../static/home.png";
+import { Link } from "react-router-dom";
 
 const TileSelectorDiv = styled.div.attrs((props) => ({
   style: {
@@ -75,7 +76,8 @@ const TileSelector = () => {
         {unitTypes}
         <ContentDiv>
           <div>
-            <a href="/">
+            
+          <Link to="/">
               <img
                 src={homeLogo}
                 height={120}
@@ -85,11 +87,11 @@ const TileSelector = () => {
                   borderRadius: "20px",
                 }}
               />
-            </a>
+            </Link>
           </div>
 
           <div>
-            <a href="/game">
+          <Link to="/game">
               <img
                 src={playGame}
                 height={120}
@@ -98,7 +100,7 @@ const TileSelector = () => {
                   borderRadius: "20px",
                 }}
               />
-            </a>
+            </Link>
           </div>
         </ContentDiv>
       </TileSelectorDiv>
