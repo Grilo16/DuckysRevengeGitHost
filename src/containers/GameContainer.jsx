@@ -270,7 +270,7 @@ const GameContainer = () => {
         dispatch({ type: "LoadMap", res : allMaps[0] });
         setTimeout(function () {
           executeScroll(myRef);
-        }, 50);
+        }, 500);
   }, []);
 
   const walls = state.walls.map((wall) => {

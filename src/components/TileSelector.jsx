@@ -34,7 +34,7 @@ const ContentDiv = styled.div`
   margin-top: 4vh;
 `;
 
-const TileSelector = () => {
+const TileSelector = ({myRef}) => {
   const { state, dispatch } = useContext(LevelMakerContext);
 
 

@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer, useRef } from "react";
 import MapCreator from "../components/MapCreator";
 import MouseTile from "../components/MouseTile";
 import TileSelector from "../components/TileSelector";
@@ -126,6 +126,15 @@ const LevelMakerContainer = () => {
 
   const [state, dispatch] = useReducer(reducer, initialStates);
 
+  const myRef = useRef(null);
+  const executeScroll = (myRef) =>
+    myRef.current.scrollIntoView({
+      behavior: "auto",
+      block: "center",
+      inline: "center",
+    });
+
+
   const trackMouse = (e) => {
     const mouseX = e.clientX;
     const mouseY = e.clientY;
@@ -146,18 +155,24 @@ const LevelMakerContainer = () => {
     dispatch({ type: "AddUnitToMap" });
   };
 
+
   useEffect(() => {
-    document.addEventListener("mousemove", trackMouse);
-    document.addEventListener("keydown", handleKeyPress);
-    document.addEventListener("click", handleClick);
+    setTimeout(function () {
+      document.addEventListener("mousemove", trackMouse);
+      document.addEventListener("keydown", handleKeyPress);
+      document.addEventListener("click", handleClick);
+      executeScroll(myRef)
+    }, 500);
   }, []);
+
 
   return (
     <>
       <LevelMakerContext.Provider value={{ state, dispatch }}>
         <MapCreator />
+        <div ref={myRef} style={{position: "absolute", top: 0, left:0}}></div>
         {state.selectedTile.tileType ? <MouseTile /> : null}
-        {state.displayTileSelector ? <TileSelector /> : null}
+        {state.displayTileSelector ? <TileSelector/> : null}
       </LevelMakerContext.Provider>
     </>
   );
