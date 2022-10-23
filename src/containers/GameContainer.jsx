@@ -63,7 +63,6 @@ const reducer = (state, action) => {
     case "LoadMapList":
       return {
         ...state,
-        selectedMapId: action.res[0]._id,
         mapList: [
           ...action.res.map((mapObj) => {
             return { name: mapObj.name, _id: mapObj._id };
@@ -279,7 +278,7 @@ const GameContainer = () => {
     gameRepo.loadMapsToStorage()
     const allMaps = gameRepo.getAllMaps()
         dispatch({ type: "LoadMapList", res: allMaps });
-        dispatch({ type: "LoadMap", res : allMaps[0] });
+        dispatch({ type: "LoadMap", res : allMaps[allMaps.length -1] });
         setTimeout(function () {
           executeScroll(myRef);
         }, 500);

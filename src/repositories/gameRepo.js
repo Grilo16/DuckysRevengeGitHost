@@ -15,7 +15,6 @@ const gameRepo = {
   },
 
   getMapById(id) {
-    console.log(allMaps)
     return allMaps.filter((map) => map._id === id)[0]
 
   },
