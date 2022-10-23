@@ -2,19 +2,15 @@ import { useContext } from "react";
 import { LevelMakerContext } from "../containers/LevelMakerContainer";
 import styled from "styled-components";
 
-let TileSelectDiv = styled.div.attrs((props) => ({
-  style: {
-    height: 100,
-    width: 100,
-  },
-}))`
-  margin-left: 100px;
+let TileSelectDiv = styled.div`
+  margin-top: 20px;
+  margin-left: 2%;
 `;
 
 const Tile = ({ type, img }) => {
   const { dispatch } = useContext(LevelMakerContext);
 
-  const tileSize = 100;
+  const tileSize = ((window.innerWidth/100 * 5) + (window.innerHeight/100 * 5)/2) -20 ;
 
   return (
     <>

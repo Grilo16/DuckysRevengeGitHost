@@ -8,11 +8,11 @@ import homeLogo from "../static/home.png";
 
 const GameMenuDiv = styled.div.attrs((props) => ({
   style: {
-    top: props.position.y - 150,
-    left: props.position.x - 150,
+    top: window.innerHeight/3,
+    left: window.innerWidth/2.6,
   },
 }))`
-  position: absolute;
+  position: fixed;
   background-color: rgb(120, 110, 190);
   height: 300px;
   width: 420px;
@@ -20,6 +20,7 @@ const GameMenuDiv = styled.div.attrs((props) => ({
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 50px;
+  z-index : 3;
 `;
 
 const ContentDiv = styled.div`

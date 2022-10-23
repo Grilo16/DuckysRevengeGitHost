@@ -12,6 +12,7 @@ const MouseTileDiv = styled.div.attrs((props) => ({
   },
 }))`
   position: absolute;
+  z-index: 0;
 `;
 const MouseTile = () => {
   const { state, dispatch } = useContext(LevelMakerContext);

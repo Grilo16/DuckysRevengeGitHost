@@ -9,30 +9,46 @@ import playGame from "../static/playagame.png";
 import homeLogo from "../static/home.png";
 import { Link } from "react-router-dom";
 
-const TileSelectorDiv = styled.div.attrs((props) => ({
+const TileSelectorDiv = styled.div.attrs(()=>({
   style: {
-    left: props.position.x - 150,
-    top: props.position.y - 200,
-  },
+    top : window.innerHeight/6 
+
+  }
 }))`
   position: absolute;
-  background-color: rgb(120, 110, 190);
-  height: 420px;
-  width: 300px;
+  background-color: rgb(20, 20, 20);
+  height: fit-content;
+  width: fit-content;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
   text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 50px;
+  padding-bottom: 1%;
+  border-radius: 15px;
+  z-index: 3;
+  margin-left: 0.3%
+  `;
+  
+  
+  const FormDiv = styled.div`
+  position: fixed;
+  margin-top: 2%;
+  text-align: center;
+  margin-left 13%;
+  width: 70%;
+  height: 100%;
+  z-index: 2;
+
 `;
 
-const ContentDiv = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin-top: 4vh;
-`;
+
+const InstructionsDiv = styled.div`
+  position: fixed;
+  text-align: center;
+  top : 90%;
+  margin-left 42%;
+  z-index: 1;
+`
+
 
 const TileSelector = ({myRef}) => {
   const { state, dispatch } = useContext(LevelMakerContext);
@@ -60,51 +76,68 @@ const TileSelector = ({myRef}) => {
 
   return (
     <>
-      <TileSelectorDiv position={state.tileSelectorPosition}>
+       <FormDiv>
         <form>
-          <label htmlFor="map-name">Name your map!</label>
-          <br />
-          <input
-            onChange={handleInput}
-            type="text"
-            id="map-name"
-            value={state.mapData.name ? state.mapData.name : " "}
-          />
-          <br />
-          <button onClick={checkValidMap}>Save map</button>
-        </form>
-        {unitTypes}
-        <ContentDiv>
-          <div>
-            
-          <a href="https://grilo16.github.io/DuckysRevengeGitHost/">
-              <img
-                src={homeLogo}
-                height={120}
-                width={120}
-                style={{
-                  backgroundColor: "rgb(20, 20, 20)",
-                  borderRadius: "20px",
-                }}
+          
+          <label htmlFor="map-name"><h2 style={{display: "inline"}}>Map name: </h2></label>
+            <input
+              onChange={handleInput}
+              type="text"
+              id="map-name"
+              value={state.mapData.name ? state.mapData.name : " "}
+              style={{width: "30%", display: "inline"}}
+              />
+            <button onClick={checkValidMap}>Save map</button>
+              
+            </form> 
+        </FormDiv>
+      <TileSelectorDiv>
+           
+           <div>
+           
+           <a href="https://grilo16.github.io/DuckysRevengeGitHost/">
+               <img
+             className="home-link"
+             src={homeLogo}
+             
+             height={window.innerHeight/100 * 10}
+             width={window.innerWidth/100 * 6.5}
+             style={{
+               backgroundColor: "rgb(20, 20, 20)",
+               borderRadius: "15%",
+              }}
               />
             </a>
 
+            <hr />
           </div>
 
           <div>
           <Link to="/game" onClick={()=>setTimeout(function () {window.location.reload()},50)}>
               <img
+                className="play-game-link"
                 src={playGame}
-                height={120}
+                width={window.innerWidth/100 * 6.5}
                 style={{
                   backgroundColor: "rgb(20, 20, 20)",
-                  borderRadius: "20px",
+                  borderRadius: "15%",
                 }}
-              />
+                />
             </Link>
+          <hr />
           </div>
-        </ContentDiv>
-      </TileSelectorDiv>
+        {unitTypes}
+    </TileSelectorDiv>
+    <InstructionsDiv>
+      {state.selectedTile.tileType ? 
+      <>
+      <h2>Click on map to add selected object</h2>
+      <p>or press space to clear selection</p>
+      </>
+      : <h2 style={{marginLeft: "50%", width: "100%"}}>Select an object </h2>
+    }
+      
+    </InstructionsDiv>
     </>
   );
 };

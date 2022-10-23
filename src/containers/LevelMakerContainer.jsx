@@ -3,26 +3,23 @@ import MapCreator from "../components/MapCreator";
 import MouseTile from "../components/MouseTile";
 import TileSelector from "../components/TileSelector";
 import gameRepo from "../repositories/gameRepo";
+import gameForeground from "../static/GameForeground.png";
+
 
 export const LevelMakerContext = createContext(null);
 
 const reducer = (state, action) => {
 
   const checkValidUnitPosition = ()=>{
-    if (!state.displayTileSelector){
-      return true
-    }
-    if (state.displayTileSelector) {
       if (
-        state.selectedTile.position.x > state.tileSelectorPosition.x - 150 &&
-        state.selectedTile.position.x < state.tileSelectorPosition.x + 150 &&
-        state.selectedTile.position.y > state.tileSelectorPosition.y - 200 &&
-        state.selectedTile.position.y < state.tileSelectorPosition.y + 370
+        state.selectedTile.position.x > window.innerWidth/100 * 7 &&
+        state.selectedTile.position.x < window.innerWidth/100 * 93 &&
+        state.selectedTile.position.y > window.innerHeight/100 * 9 &&
+        state.selectedTile.position.y < window.innerHeight/100 * 90
       ) {
-        return false
+        return true
       }
-    }
-    return true
+      return false
   }
 
   switch (action.type) {
@@ -30,14 +27,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         selectedTile: { ...state.selectedTile, position: action.position },
-      };
-
-    case "ToggleTileSelector":
-      const status = !state.displayTileSelector;
-      return {
-        ...state,
-        displayTileSelector: status,
-        tileSelectorPosition: { ...state.selectedTile.position },
       };
 
     case "SelectTileType":
@@ -118,8 +107,6 @@ const reducer = (state, action) => {
 
 const LevelMakerContainer = () => {
   const initialStates = {
-    tileSelectorPosition: { x: 250, y: 250 },
-    displayTileSelector: false,
     selectedTile: { tileType: null, position: {} },
     mapData: { name: null, enemies: [], walls: [], player: [] },
   };
@@ -170,12 +157,18 @@ const LevelMakerContainer = () => {
     <>
       <LevelMakerContext.Provider value={{ state, dispatch }}>
         <MapCreator />
+        
+        <img className="foreground" src={gameForeground} alt="" style={{zIndex: "1"}}/>
         <div ref={myRef} style={{position: "absolute", top: 0, left:0}}></div>
         {state.selectedTile.tileType ? <MouseTile /> : null}
-        {state.displayTileSelector ? <TileSelector/> : null}
+        <TileSelector/>
       </LevelMakerContext.Provider>
     </>
   );
 };
 
 export default LevelMakerContainer;
+
+
+
+

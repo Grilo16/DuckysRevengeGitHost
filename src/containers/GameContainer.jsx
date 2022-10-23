@@ -1,10 +1,22 @@
 import { createContext, useEffect, useReducer, useRef } from "react";
+import styled from "styled-components";
 import Enemy from "../components/Enemy";
 import GameMenu from "../components/GameMenu";
 import PlayerCharacter from "../components/PlayerCharacter";
 import Projectile from "../components/Projectile";
 import Walls from "../components/Walls";
 import gameRepo from "../repositories/gameRepo";
+import gameForeground from "../static/GameForeground.png";
+
+
+const InstructionsDiv = styled.div`
+  position: fixed;
+  text-align: center;
+  top : 90%;
+  margin-left 37%;
+  z-index: 1;
+`
+
 
 export const AppContext = createContext(null);
 
@@ -290,7 +302,7 @@ const GameContainer = () => {
   return (
     <AppContext.Provider
       value={{ state, dispatch, characterSize, unitSize, projectileSize }}
-    >
+      >
       <div id="game-div">
         <PlayerCharacter myRef={myRef} executeScroll={executeScroll} />
         {enemies}
@@ -298,8 +310,13 @@ const GameContainer = () => {
         {state.projectiles.length ? projectiles : null}
         {state.showGameMenu ? (
           <GameMenu myRef={myRef} executeScroll={executeScroll} />
-        ) : null}
+          ) : null}
       </div>
+          <img className="foreground" src={gameForeground} alt=""/>
+          <InstructionsDiv> 
+            <h3>Arrow keys to move ducky, space bar to shoot blackholes</h3>
+            <h4>Press escape for menu</h4>
+          </InstructionsDiv>
     </AppContext.Provider>
   );
 };
