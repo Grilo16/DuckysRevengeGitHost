@@ -1,7 +1,7 @@
+# Ducky's revenge
 # Live project
 ## Gh pages host <https://grilo16.github.io/DuckysRevengeGitHost/>
 
-# Ducky's revenge
 
 
 ## This is a game project done over 4 days using React. 
