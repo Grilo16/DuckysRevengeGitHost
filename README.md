@@ -1,5 +1,4 @@
 # Ducky's revenge
-# Live project
 ## Gh pages host <https://grilo16.github.io/DuckysRevengeGitHost/>
 
 
